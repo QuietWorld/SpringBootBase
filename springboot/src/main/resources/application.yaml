@@ -1,0 +1,10 @@
+#端口号
+server:
+  port: 80
+#数据源
+spring:
+  datasource:
+    driver-class-name:
+    username:
+    password:
+    url:
