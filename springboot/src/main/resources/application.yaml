@@ -1,10 +1,23 @@
 #端口号
 server:
   port: 80
+  servlet:
+    path: / #配置DispatcherServlet的拦截路径
 #数据源
 spring:
   datasource:
-    driver-class-name:
-    username:
-    password:
-    url:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/ssm
+    username: root
+    password: root
+##########SpringBoot整合MyBatis的配置#############
+mybatis:
+  # 类型别名包
+  type-aliases-package: com.itheima.domain
+  # dao接口映射配置文件的位置，使用通用Mapper进行单表CRUD时可以不配置
+  # mapper-locations: /**/*.xml
+  # 在启动类上使用@MapperScan注解来配置扫描Dao接口，相当于xml配置中的MapperScanner和Mybatis配置中<Mapper/>
+  configuration:
+    # 驼峰命名开启
+    map-underscore-to-camel-case: true
+

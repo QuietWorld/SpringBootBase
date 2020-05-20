@@ -1,8 +1,7 @@
 package com.itheima;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
-
-
+import tk.mybatis.spring.annotation.MapperScan;
 
 
 /**
@@ -12,6 +11,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  * @author zc
  */
 @SpringBootApplication
+@MapperScan("com.itheima.dao")   // 使用通用Mapper后该注解要换成通用Mapper的@MapperScan
 public class SpringBootApplicationStart {
     public static void main(String[] args) {
         SpringApplication.run(SpringBootApplicationStart.class);

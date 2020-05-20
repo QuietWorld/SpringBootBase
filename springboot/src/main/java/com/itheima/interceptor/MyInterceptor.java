@@ -1,5 +1,7 @@
 package com.itheima.interceptor;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.ModelAndView;
@@ -12,6 +14,8 @@ import javax.servlet.http.HttpServletResponse;
 @Component("myInterceptor")
 public class MyInterceptor implements HandlerInterceptor {
 
+    // 使用slf4j进行日志记录
+    private static final Logger log = LoggerFactory.getLogger(MyInterceptor.class);
 
     /**
      * 在handler方法执行之前执行
@@ -21,19 +25,20 @@ public class MyInterceptor implements HandlerInterceptor {
      */
     @Override
     public boolean preHandle(HttpServletRequest request, HttpServletResponse response, Object handler) throws Exception {
-        System.out.println("前置方法执行了");
-        return false;
+        log.info("preHandle is running");
+        return true
+                ;
     }
 
     // 在目标资源执行之后执行
     @Override
     public void postHandle(HttpServletRequest request, HttpServletResponse response, Object handler, ModelAndView modelAndView) throws Exception {
-        System.out.println("后置方法执行了");
+        log.info("postHandle is running");
     }
 
     // 成功响应后执行
     @Override
     public void afterCompletion(HttpServletRequest request, HttpServletResponse response, Object handler, Exception ex) throws Exception {
-        System.out.println("完成方法执行了");
+        log.info("afterCompletion is running");
     }
 }
