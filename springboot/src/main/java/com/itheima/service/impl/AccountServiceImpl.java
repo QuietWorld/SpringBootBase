@@ -18,4 +18,9 @@ public class AccountServiceImpl implements AccountService {
     public List<Account> findAll() {
         return accountDao.selectAll();
     }
+
+    @Override
+    public Account findById(Integer id) {
+       return this.accountDao.selectByPrimaryKey(id);
+    }
 }
