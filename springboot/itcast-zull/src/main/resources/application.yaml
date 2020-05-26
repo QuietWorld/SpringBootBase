@@ -1,0 +1,18 @@
+server:
+  port: 10010
+spring:
+  application:
+    name: itcast-zull
+zuul:
+ # prefix: api    # 访问前缀，可以加上用于区分是我外部接口还是内部接口
+  routes:
+    service-consumer: /consumer/**   # 方式3：推荐使用，是方式二的简洁写法
+    service-provider: /provider/**
+      #path: /consumer/**
+      #url: http://localhost:8888 # 方式1：通过path映射URL的方式会将路径的服务写死，无法实现负载均衡，不推荐。
+      #serviceId: service-provider # 方式2：将path映射到服务名为service-provider的服务上面，可以实现负载均衡，因为
+                                        # 需要根据服务id从eureka服务器拉取服务实例列表进行动态路由，所以需要将zuul注册到eureka服务器中
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka

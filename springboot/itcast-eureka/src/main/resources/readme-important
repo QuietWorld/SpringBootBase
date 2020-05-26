@@ -1,0 +1,9 @@
+注意了：
+如果eureka-serverA将自己注入到eureka-serverB中，那么eureka-A和eureka-B就是一个eureka服务器集群，
+那么eureka-serverA和eureka-B就会共享各自的服务实例。也就是说注册在A中的服务实例，现在也会注册到B中，
+即使eureka-serverA宕机了，服务实例依然可以通过eureka-serverB进行运行。
+=-================
+总结：
+多个Eureka Server之间也会互相注册为服务，当服务提供者注册到Eureka Server集群中的某个节点时，
+该节点会把服务的信息同步给集群中的每个节点，从而实现数据同步。
+因此，无论客户端访问到Eureka Server集群中的任意一个节点，都可以获取到完整的服务列表信息。

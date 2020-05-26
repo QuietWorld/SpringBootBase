@@ -1,0 +1,28 @@
+server:
+  port: 8888
+spring:
+  application:
+    name: service-consumer
+  cloud:
+    loadbalancer:
+      retry:
+        enabled: false    # 服务调用方调用给一个服务失败后不会立即抛出异常，而是再次尝试调用其他集群中可用服务
+eureka:
+  client:
+    service-url:
+      defaultZone: http://127.0.0.1:10086/eureka   #eureka服务器的地址
+    registry-fetch-interval-seconds: 5   #服务消费端每隔5秒拉取一次服务实例列表，默认30秒（注册表拉取间隔）
+# 修改服务调用方的负载均衡策略
+service-provider:
+  ribbon:
+    NFLoadBalancerRuleClassName: com.netflix.loadbalancer.RandomRule # 负载均衡策略类的全限定类名（IRule接口的实现类）
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMillisecond: 6000 # Hystrix服务调用超时阈值（默认1秒）
+feign:
+  hystrix:
+    enabled: true # 开启feign的熔断功能

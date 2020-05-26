@@ -6,6 +6,10 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/springcloud-httpclient/pom.xml" />
+        <option value="$PROJECT_DIR$/itcast-service-provider/pom.xml" />
+        <option value="$PROJECT_DIR$/itcast-service-consumer/pom.xml" />
+        <option value="$PROJECT_DIR$/itcast-eureka/pom.xml" />
+        <option value="$PROJECT_DIR$/itcast-zull/pom.xml" />
       </list>
     </option>
   </component>

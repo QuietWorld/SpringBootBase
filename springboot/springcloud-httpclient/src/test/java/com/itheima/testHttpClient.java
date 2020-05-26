@@ -3,7 +3,6 @@ package com.itheima;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.itheima.domain.Account;
-import org.apache.http.client.methods.CloseableHttpResponse;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.impl.client.BasicResponseHandler;
 import org.apache.http.impl.client.CloseableHttpClient;

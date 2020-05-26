@@ -1,0 +1,12 @@
+server:
+  port: 10086
+spring:
+  application:
+    name: eureka-service # 应用名称，作为eureka注册中心服务实例的id
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:${server.port}/eureka
+  server:
+    enable-self-preservation: false # 关闭eureka的自我保护模式，开发中可以关闭，生产中一定打开，缺省为true
+    eviction-interval-timer-in-ms: 1000 # 驱逐失效服务间隔时间

@@ -1,0 +1,22 @@
+server:
+  port: 8082
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    url: jdbc:mysql:///ssm
+    username: root
+    password: root
+  application:
+    name: service-provider  # 应用名称，在eureka服务器中注册服务的id
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+  type-aliases-package: cn.itcast.domain
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:10086/eureka
+  instance:
+    lease-renewal-interval-in-seconds: 5 #服务续约间隔时间
+    lease-expiration-duration-in-seconds: 10 #服务失效时间，如果超过10秒没有向eureka服务器服务续约，
+     #那么eureka将认为该服务失效，但是eureka有服务的保护机制，并不会立即将没有按时续约的服务剔除服务实例列表
